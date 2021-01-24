@@ -48,6 +48,7 @@ class Triangle
         $this->setB($b);
         $this->setC($c);
         $this->setOpseg();
+        $this->setPovrsina();
     }
 
     public function getId(): ?int
@@ -104,15 +105,15 @@ class Triangle
     }
 
 
-    public function getPovrsina(): ?int
+    public function getPovrsina(): ?float
     {
-        $this->povrsina = $this->sqrt(($this->getA()+$this->getB()+$this->getC()) * (($this->getA()+$this->getB()+$this->getC()) -$this->getA()) * (($this->getA()+$this->getB()+$this->getC()) -$this->getB()) * (($this->getA()+$this->getB()+$this->getC()) -$this->getC()));
         return $this->povrsina;
     }
 
-    public function setPovrsina(int $povrsina): self
+    public function setPovrsina(): self
     {
-        $this->povrsina = $povrsina;
+        $zbr = ($this->getA()+$this->getB()+$this->getC()) / 2;
+        $this->povrsina = sqrt(($zbr) * ( $zbr - $this->getA()) * ($zbr - $this->getB()) * ( $zbr -$this->getC()));
 
         return $this;
     }
