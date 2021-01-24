@@ -16,11 +16,7 @@ class TriangleController extends AbstractController
      */
     public function createTriangle(CreateTriangleService $triangleService, Request $request): Response
     {
-        $trokut = $triangleService->execute(
-            $request->get('a'),
-            $request->get('b'),
-            $request->get('c')
-        );
+        $trokut = $triangleService->execute( $request->get('a'), $request->get('b'), $request->get('c'));
 
         return $this->json($trokut);
     }
@@ -28,7 +24,7 @@ class TriangleController extends AbstractController
     /**
      * @Route("/triangle", methods={"GET"}, name="triangle")
      */
-    public function getTriangles(GetAllTrianglesService $triangleService, Request $request): Response
+    public function getTriangles(GetAllTrianglesService $triangleService): Response
     {
         $trokuti = $triangleService->execute();
 
