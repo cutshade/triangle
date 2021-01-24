@@ -1,4 +1,4 @@
-# triangle
+# Triangle
 boxmark test project
 Zadatak:
 
